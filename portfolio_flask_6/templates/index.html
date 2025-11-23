@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ portfolio.name }} | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">&lt;Akhil.Dev/&gt;</div>
+        <ul class="nav-links">
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="{{ url_for('contact') }}" class="btn-nav">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-image-wrapper">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="Maddi Akhil" class="profile-pic">
+                <div class="badge">Python Dev</div>
+            </div>
+            
+            <div class="hero-text">
+                <span class="greeting">Hello, I'm</span>
+                <h1>{{ portfolio.name }}</h1>
+                <h3>{{ portfolio.role }}</h3>
+                <p>{{ portfolio.profile }}</p>
+                
+                <div class="social-links">
+                    <a href="{{ portfolio.contact.linkedin }}" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="{{ portfolio.contact.github }}" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="mailto:{{ portfolio.contact.email }}" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="experience" class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                {% for exp in portfolio.experience %}
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>{{ exp.role }}</h3>
+                        <h4>{{ exp.company }}</h4>
+                        <span class="date">{{ exp.duration }}</span>
+                        <ul>
+                            {% for d in exp.details %}
+                            <li>{{ d }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                {% for project in portfolio.projects %}
+                <div class="project-card">
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h3>{{ project.name }}</h3>
+                    <p>{{ project.description }}</p>
+                    <div class="card-footer">
+                        <a href="{{ project.link }}" target="_blank" class="read-more">View Code &rarr;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="skills-wrapper">
+                {% for skill in portfolio.skills %}
+                <span class="skill-tag">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <section class="section education">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-grid">
+                {% for edu in portfolio.education %}
+                <div class="edu-card">
+                    <h3>{{ edu.degree }}</h3>
+                    <p>{{ edu.institute }}</p>
+                    <span class="year">{{ edu.year }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with <i class="fab fa-python"></i> Flask & &hearts; by Maddi Akhil &copy; 2025</p>
+    </footer>
+
+</body>
+</html>
