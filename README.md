@@ -14,8 +14,7 @@
 
 I have recorded a full walkthrough of the website running locally via VS Code to demonstrate the animations, responsiveness, and routing.
 
-**[👇 Click here to watch the Screen Recording (https://github.com/akhilmaddi2004/flask-professional-portfolio-6/blob/main/portfolio_flask_6/videos/demo%20(1).mp4)]**
-*(Note: Please ensure the file `demo.mp4` is uploaded to the repository root)*
+**### [▶️ Click Here to Watch the Demo Video](https://github.com/akhilmaddi2004/flask-professional-portfolio-6/blob/main/portfolio_flask_6/videos/demo%20(1).mp4)**
 > `[Link to demo.mp4 file inside the repo]`
 
 ---
