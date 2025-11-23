@@ -1,4 +1,4 @@
-# 🐍 Flask Professional Portfolio
+#  Flask Professional Portfolio
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-2.x-red?style=for-the-badge&logo=flask&logoColor=white)
